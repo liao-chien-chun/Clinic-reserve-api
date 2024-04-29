@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\TreatmentItemController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('v1')->group(function() {
-
+    Route::get('/treatment-items', [TreatmentItemController::class, 'index']);
 });
