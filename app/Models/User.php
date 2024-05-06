@@ -19,6 +19,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'idno',
+        'doctor_introduction',
+        'gender',
+        'phone',
+        'birthday',
+        'address',
+        'role',
         'email',
         'password',
     ];
@@ -29,8 +36,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     /**
@@ -38,8 +44,14 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    //     'password' => 'hashed',
+    // ];
+
+    // 定義與治療項目之多對多關聯
+    public function treatmentItems()
+    {
+        return $this->belongsToMany(TreatmentItem::class, 'doctor_treatment_items', 'user_id', 'treatment_item_id')->withPivot([]);
+    }
 }

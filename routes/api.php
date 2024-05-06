@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\TreatmentItemController;
-
+use App\Http\Controllers\Api\v1\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +21,9 @@ use App\Http\Controllers\Api\v1\TreatmentItemController;
 // });
 
 Route::prefix('v1')->group(function() {
+    // 取得所有治療項目
     Route::get('/treatment-items', [TreatmentItemController::class, 'index']);
+
+    // 取得所有醫生與醫生治療項目
+    Route::get('/doctor-item', [DoctorController::class, 'showDoctorItems']);
 });

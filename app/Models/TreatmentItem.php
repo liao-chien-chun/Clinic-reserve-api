@@ -15,4 +15,10 @@ class TreatmentItem extends Model
         'item_name',
     ];
 
+    // 定義與醫生的多對多關聯
+    public function doctors()
+    {
+        return $this->belongsToMany(User::class, 'doctor_treatment_items', 'treatment_item_id', 'user_id')->withPivot([]);
+    }
+
 }
