@@ -25,5 +25,5 @@ Route::prefix('v1')->group(function() {
     Route::get('/treatment-items', [TreatmentItemController::class, 'index']);
 
     // 取得所有醫生與醫生治療項目
-    Route::get('/doctor-item', [DoctorController::class, 'showDoctorItems']);
+    Route::get('/doctor-items', [DoctorController::class, 'showDoctorItems']);
 });
